@@ -1,0 +1,4 @@
+#box-text::after{content:"Sad";}
+#mouth{transform-origin: 225px 215px; transform:rotate(180deg);}
+#box:checked ~ #box-text::after{content:"Happy";}
+#box:checked ~ svg #mouth{transform:rotate(0deg);}
