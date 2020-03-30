@@ -26,7 +26,7 @@ const yLable = svg.append('text').attr('transform', `translate(${margin/2}, ${he
 
 // Part 1: по аналогии со строчками сверху задайте атрибуты 'transform' чтобы переместить оси 
 const xAxis = svg.append('g').attr('transform', `translate(${0}, ${height-margin})`);
-const yAxis = svg.append('g').attr('transform', `translate(${margin*2+1}, ${0})`);
+const yAxis = svg.append('g').attr('transform', `translate(${margin*2}, ${0})`);
 
 // Part 2: Здесь можно создать шкалы для цвета и радиуса объектов
 const color = d3.scaleOrdinal().range(colors);
@@ -35,12 +35,12 @@ const r = d3.scaleSqrt().range([1, 20]);
 // Part 2: для элемента select надо задать options http://htmlbook.ru/html/select
 // и установить selected для дефолтного значения
 // Part 3: то же что делали выше, но для осей
-const defaults = {"x": xParam, "y": yParam, "radius": radius};
+const defaults = {'x': xParam, 'y': yParam, 'radius': radius};
 for (const sel in defaults)
 	for (const param of params) {
-		var node = document.createElement("option");
-		node.setAttribute("value", param);
-		if (defaults[sel] === param) node.setAttribute("selected", "");
+		var node = document.createElement('option');
+		node.setAttribute('value', param);
+		if (defaults[sel] === param) node.setAttribute('selected', '');
 		node.innerText = param;
 		document.getElementById(sel).appendChild(node);
 	}
@@ -111,10 +111,10 @@ loadData().then(data => {
         r.domain([d3.min(rRange), d3.max(rRange)]);
 
         // Part 1, 2: создаем и обновляем состояние точек
-		svg.selectAll("circle").data(data).enter().append("circle");
-		svg.selectAll("circle").data(data)
-			.attr("cx", d => x(+d[xParam][year])).attr("cy", d => y(+d[yParam][year])).attr("r",  d => r(+d[radius][year]))
-			.style("fill", d => color(d.region));
+		svg.selectAll('circle').data(data).enter().append('circle');
+		svg.selectAll('circle').data(data)
+			.attr('cx', d => x(+d[xParam][year])).attr('cy', d => y(+d[yParam][year])).attr('r',  d => r(+d[radius][year]))
+			.style('fill', d => color(d.region));
     }
 
     // рисуем график в первый раз
