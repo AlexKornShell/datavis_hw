@@ -123,7 +123,7 @@ loadData().then(data => {
 
 // Эта функция загружает и обрабатывает файлы, без особого желания лучше ее не менять
 async function loadData() {
-    const population = await d3.csv('https://raw.githubusercontent.com/itmo-escience/datavis_ru/master/hw/hw2/data/pop.csv');
+    const population = await d3.csv('data/pop.csv');
     const rest = { 
         'gdp': await d3.csv('data/gdppc.csv'),
         'child-mortality': await d3.csv('data/cmu5.csv'),
