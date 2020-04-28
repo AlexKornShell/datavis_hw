@@ -41,7 +41,7 @@ const simulation = d3.forceSimulation()
 		.force("collide", d3.forceCollide().radius(d => radius(+d["user rating score"])));
 
 
-d3.csv("https://raw.githubusercontent.com/itmo-escience/datavis_ru/master/hw/hw3/data/netflix.csv").then(data=>{
+d3.csv("data/netflix.csv").then(data=>{
     data = d3.nest().key(d=>d.title).rollup(d=>d[0]).entries(data).map(d=>d.value).filter(d=>d["user rating score"]!=="NA");
     console.log(data)
     
